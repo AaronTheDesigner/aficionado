@@ -27,7 +27,7 @@ public class User {
 	private Date joinedAt;
 
 	@NotEmpty(message = "please provide a first name")
-	public String fistName;
+	public String firstName;
 
 	@NotEmpty(message = "please provide a last name")
 	public String lastName;
@@ -55,9 +55,9 @@ public class User {
 	public User() {
 	}
 
-	public User(Date joinedAt, @NotEmpty(message = "please provide a first name") String fistName, @NotEmpty(message = "please provide a last name") String lastName, @NotEmpty(message = "please provide a user name") @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces") String userName, @NotEmpty @Email(message = "please provide a valid email") String email, String imageUrl, Double waist, Double chest, Double inseam) {
+	public User(Date joinedAt, @NotEmpty(message = "please provide a first name") String firstName, @NotEmpty(message = "please provide a last name") String lastName, @NotEmpty(message = "please provide a user name") @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces") String userName, @NotEmpty @Email(message = "please provide a valid email") String email, String imageUrl, Double waist, Double chest, Double inseam) {
 		this.joinedAt = joinedAt;
-		this.fistName = fistName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.email = email;
@@ -83,12 +83,12 @@ public class User {
 		this.joinedAt = joinedAt;
 	}
 
-	public String getFistName() {
-		return fistName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFistName(String fistName) {
-		this.fistName = fistName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -160,7 +160,7 @@ public class User {
 		return "User{" +
 				"Id=" + Id +
 				", joinedAt=" + joinedAt +
-				", fistName='" + fistName + '\'' +
+				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
 				", userName='" + userName + '\'' +
 				", email='" + email + '\'' +
