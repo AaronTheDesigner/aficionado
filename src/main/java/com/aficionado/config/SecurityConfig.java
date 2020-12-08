@@ -1,4 +1,4 @@
-package com.aficionado.site.config;
+package com.aficionado.config;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

@@ -1,9 +1,12 @@
-package com.aficionado.site.repository;
+package com.aficionado.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository <User, Long> {
-    
+public interface CartRepository extends CrudRepository <Cart, Long> {
+
+
 }
+    
+
