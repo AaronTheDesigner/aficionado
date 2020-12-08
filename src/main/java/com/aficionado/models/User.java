@@ -1,4 +1,4 @@
-package com.aficionado.model;
+package com.aficionado.models;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,12 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 //set User as an entity and name table
 @Entity
-@Table(name = "users")
+@Table(name="users")
 public class User {
 	// set Id as primary key, randomly generate it and name column
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "user_id")
+	@Column(name="user_id")
 	private Long userId;
 	//fields and validation messages
 	@Email(message = "Please provide a valid email")
