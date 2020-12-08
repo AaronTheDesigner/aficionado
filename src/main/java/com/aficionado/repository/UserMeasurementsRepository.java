@@ -1,9 +1,9 @@
-package com.aficionado.site.repository;
+package com.aficionado.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MeasurementsRepository extends CrudRepository <Measurements, Long> {
+public interface UserMeasurementsRepository extends CrudRepository <UserMeasurements, Long> {
    
 }

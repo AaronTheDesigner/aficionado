@@ -1,4 +1,4 @@
-package com.aficionado.site.repository;
+package com.aficionado.repository;
 
 import java.util.List;
 
