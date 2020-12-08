@@ -35,4 +35,7 @@ public class MainController {
 
     @GetMapping(value="/cart")
     public String cart() { return "cart"; }
+
+    @GetMapping(value="/collection")
+    public String collection() { return "collection"; }
 }
