@@ -1,6 +1,7 @@
 package com.aficionado.repository;
 
 
+import com.aficionado.models.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
