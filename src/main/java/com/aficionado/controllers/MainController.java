@@ -1,4 +1,4 @@
-package com.aficionado.site.controllers;
+package com.aficionado.controllers;
 
 
 import org.springframework.stereotype.Controller;

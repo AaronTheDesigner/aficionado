@@ -1,4 +1,4 @@
-package com.aficionado.model;
+package com.aficionado.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
