@@ -45,8 +45,10 @@
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
           >
           <!-- href="/assets/<imagename>.<filetype(ie. jpg)" th:href="@{/assets/<imagename>.<filetype(ie. jpg)}" -->
-          <img src="assets/img/navbar-logo.svg" alt=""
-        /></a>
+          <!--Navbar logo-->
+          <!--<img th:src="@{static/assets/navbar-logo.svg}"/>-->
+          <img src=“/static/assets/navbar-logo.svg” th:src=“@{/static/assets/navbar-logo.svg)}“>
+        </a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
