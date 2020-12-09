@@ -42,7 +42,6 @@ public class AuthController {
     @PostMapping("/newuser")
     public String submitForm(User user, Model model) {
         userRepository.save(user);
-        model.addAttribute("firstName", )
         System.out.println(user);
         return "profile";
     }
