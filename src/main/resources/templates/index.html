@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -36,7 +37,7 @@
       type="text/css"
     />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/stylesheet.css" type="text/css" rel="stylesheet" th:href="@{../css/stylesheet.css}" />
+    <link th:href="../static/css/stylesheet.css" type="text/css" rel="stylesheet" />
   </head>
   <body id="page-top">
     <!-- Navigation-->
@@ -47,7 +48,7 @@
           <!-- href="/assets/<imagename>.<filetype(ie. jpg)" th:href="@{/assets/<imagename>.<filetype(ie. jpg)}" -->
           <!--Navbar logo-->
           <!--<img th:src="@{static/assets/navbar-logo.svg}"/>-->
-          <img src=“/static/assets/navbar-logo.svg” th:src=“@{/static/assets/navbar-logo.svg)}“>
+          <img src="../static/images/header-bg.jpg">
         </a>
         <button
           class="navbar-toggler navbar-toggler-right"
