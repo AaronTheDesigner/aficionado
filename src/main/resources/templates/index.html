@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -44,10 +45,8 @@
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
           >
-          <!-- href="/assets/<imagename>.<filetype(ie. jpg)" th:href="@{/assets/<imagename>.<filetype(ie. jpg)}" -->
           <!--Navbar logo-->
-          <!--<img th:src="@{static/assets/navbar-logo.svg}"/>-->
-          <img src=“/static/assets/navbar-logo.svg” th:src=“@{/static/assets/navbar-logo.svg)}“>
+          <img src="../static/images/header-bg.jpg" th:src="@{/images/header-bg.jpg}">
         </a>
         <button
           class="navbar-toggler navbar-toggler-right"
