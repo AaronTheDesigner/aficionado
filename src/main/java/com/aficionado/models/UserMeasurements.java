@@ -1,21 +1,23 @@
-//package com.aficionado.models;
-//
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//import javax.persistence.OneToOne;
-//import javax.persistence.Table;
-//import javax.validation.constraints.NotEmpty;
-//
+package com.aficionado.models;
+
+import com.aficionado.models.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 //@Entity
-//@Table(name = "measurements")
+////@Table(name = "measurements")
 //public class UserMeasurements {
 //	// set Id as primary key, randomly generate it and name column
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
-//	@Column(name = "user_measurements_id")
+//	@Column //(name = "user_measurements_id")
 //	private Long userMeasurementsId;
 //
 //	@NotEmpty(message = "Please provide your waist measurement in inches")
