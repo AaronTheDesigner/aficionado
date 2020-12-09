@@ -1,4 +1,4 @@
-package com.aficionado.site.config;
+package com.aficionado.config;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,8 +11,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 authorizeRequests()
-                .antMatchers("/").permitAll();
+                .antMatchers("/").permitAll()
+                .antMatchers("/console/**").permitAll();
 
+        http.csrf().disable();
         http.headers().frameOptions().disable();
     }
 }
