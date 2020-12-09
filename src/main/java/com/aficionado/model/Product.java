@@ -1,3 +1,5 @@
+package com.aficionado.model;
+
 import java.util.List;
 
 import javax.persistence.Column;
