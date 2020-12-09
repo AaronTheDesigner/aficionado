@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -44,9 +45,9 @@
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
           >
-          <!-- href="../assets/<imagename>.<filetype(ie. jpg)" th:href="@{../assets/<imagename>.<filetype(ie. jpg)}" -->
-          <img src="assets/img/navbar-logo.svg" alt=""
-        /></a>
+          <!--Navbar logo-->
+          <img src="../static/images/aficionodo-logo.png" th:src="@{/images/aficionodo-logo.png}">
+        </a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -109,8 +110,8 @@
                 </div>
                 <img
                   class="img-fluid"
-                  src="assets/img/portfolio/01-thumbnail.jpg"
-                  alt=""
+                  src="../static/images/01-thumbnail.jpg"
+                  th:src="@{/images/01-thumbnail.jpg}"
                 />
               </a>
               <div class="portfolio-caption">
@@ -135,8 +136,8 @@
                 </div>
                 <img
                   class="img-fluid"
-                  src="assets/img/portfolio/02-thumbnail.jpg"
-                  alt=""
+                  src="../static/images/02-thumbnail.jpg"
+                  th:src="@{/images/02-thumbnail.jpg}"
                 />
               </a>
               <div class="portfolio-caption">
@@ -161,8 +162,8 @@
                 </div>
                 <img
                   class="img-fluid"
-                  src="assets/img/portfolio/03-thumbnail.jpg"
-                  alt=""
+                  src="../static/images/03-thumbnail.jpg"
+                  th:src="@{/images/03-thumbnail.jpg}"
                 />
               </a>
               <div class="portfolio-caption">
@@ -187,8 +188,8 @@
                 </div>
                 <img
                   class="img-fluid"
-                  src="assets/img/portfolio/04-thumbnail.jpg"
-                  alt=""
+                  src="../static/images/04-thumbnail.jpg"
+                  th:src="@{/images/04-thumbnail.jpg}"
                 />
               </a>
               <div class="portfolio-caption">
@@ -213,8 +214,8 @@
                 </div>
                 <img
                   class="img-fluid"
-                  src="assets/img/portfolio/05-thumbnail.jpg"
-                  alt=""
+                  src="../static/images/05-thumbnail.jpg"
+                  th:src="@{/images/05-thumbnail.jpg}"
                 />
               </a>
               <div class="portfolio-caption">
@@ -239,8 +240,8 @@
                 </div>
                 <img
                   class="img-fluid"
-                  src="assets/img/portfolio/06-thumbnail.jpg"
-                  alt=""
+                  src="../static/images/06-thumbnail.jpg"
+                  th:src="@{/images/06-thumbnail.jpg}"
                 />
               </a>
               <div class="portfolio-caption">
