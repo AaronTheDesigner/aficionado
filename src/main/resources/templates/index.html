@@ -37,7 +37,7 @@
       type="text/css"
     />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link th:href="../static/css/stylesheet.css" type="text/css" rel="stylesheet" />
+    <link href="../css/stylesheet.css" type="text/css" rel="stylesheet" th:href="@{../css/stylesheet.css}"/>
   </head>
   <body id="page-top">
     <!-- Navigation-->
@@ -46,9 +46,6 @@
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
           >
           <!--Navbar logo-->
-
-          <!--<img th:src="@{static/assets/navbar-logo.svg}"/>-->
-          <img src="../static/images/header-bg.jpg">
 
           <img src="../static/images/header-bg.jpg" th:src="@{/images/header-bg.jpg}">
 
