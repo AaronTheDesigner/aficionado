@@ -18,6 +18,7 @@ public class Product {
     @Column
     private Long productId;
     // fields
+    public String name;
     private String color;
     private String fabric;
     private int buttons;
@@ -30,7 +31,8 @@ public class Product {
     }
 
     public Product(Long productId, String color, String fabric, int buttons, String breast, String lining, String lapel, double price) {
-        this.productId = productId;
+        this.name = name;
+    	this.productId = productId;
         this.color = color;
         this.fabric = fabric;
         this.buttons = buttons;
@@ -45,6 +47,11 @@ public class Product {
         return productId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    
     public String getColor() {
         return color;
     }
@@ -105,6 +112,7 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
+                "' name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 ", fabric='" + fabric + '\'' +
                 ", buttons=" + buttons +
