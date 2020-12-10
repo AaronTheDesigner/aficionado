@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
+<!--Headstyling fragment below-->
+<head ></head>
+<body>
+     <!--Navbar fragment below-->
+     <div ></div>
 <form action='/charge' method='POST' id='checkout-form'>
     <input type='hidden' th:value='${amount}' name='amount' />
    <label>Price:<span th:text="${#numbers.formatCurrency(#aggregates.sum(list))}" ></span></label>
@@ -19,3 +23,7 @@
        data-zip-code='false'>
    </script>
 </form>
+<!--Footer fragment below-->
+<div ></div>
+</body>
+</html>

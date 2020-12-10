@@ -1,5 +1,7 @@
 package com.aficionado.repository;
 
+import com.aficionado.models.Role;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
