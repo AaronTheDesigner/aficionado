@@ -39,15 +39,15 @@ public class MainController {
     private UserRepository userRepository;
 
     //get routes
-    @GetMapping(value="/signup")
-    public String signUp() {
-        return "signup";
-    }
+//    @GetMapping(value="/signup")
+//    public String signUp() {
+//        return "signup";
+//    }
 
-    @GetMapping(value="/login")
-    public String login() {
-        return "login";
-    }
+//    @GetMapping(value="/login")
+//    public String login() {
+//        return "login";
+//    }
 
     @GetMapping(value="/profile")
     public String profile() {
