@@ -45,7 +45,8 @@ public class AuthController {
             model.addAttribute("success", "Sign up successful");
             model.addAttribute("user", new User());
         }
-        return "login";
+
+        return "profile";
     }
 
 }
