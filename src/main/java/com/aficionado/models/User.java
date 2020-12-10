@@ -40,7 +40,11 @@ public class User {
 	@Email(message = "please provide a valid email")
 	public String email;
 
-
+	private int active;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+	
 	public String imageUrl;
 
 
