@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 // set User as an entity and name table
 @Entity
-//@Table(name = "product")
+@Table(name = "products")
 public class Product {
     // set Id as primary key, randomly generate it and name column
     @Id

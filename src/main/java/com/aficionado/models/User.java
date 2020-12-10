@@ -12,8 +12,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Table(name="users")
 public class User {
 	@Id
 	@Column
@@ -52,10 +54,14 @@ public class User {
 
 	public Double inseam;
 
+	@ManyToMany
+	@JoinTable(name = "cart_products", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+	private List<Product> cart;
+
 	public User() {
 	}
 
-	public User(Date joinedAt, @NotEmpty(message = "please provide a first name") String firstName, @NotEmpty(message = "please provide a last name") String lastName, @NotEmpty(message = "please provide a user name") @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces") String userName, @NotEmpty @Email(message = "please provide a valid email") String email, String imageUrl, Double waist, Double chest, Double inseam) {
+	public User(Date joinedAt, @NotEmpty(message = "please provide a first name") String firstName, @NotEmpty(message = "please provide a last name") String lastName, @NotEmpty(message = "please provide a user name") @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces") String userName, @NotEmpty @Email(message = "please provide a valid email") String email, String imageUrl, Double waist, Double chest, Double inseam, List cart) {
 		this.joinedAt = joinedAt;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -65,6 +71,15 @@ public class User {
 		this.waist = waist;
 		this.chest = chest;
 		this.inseam = inseam;
+		this.cart = cart;
+	}
+
+	public List<Product> getCart() {
+		return cart;
+	}
+
+	public void setCart(List<Product> cart) {
+		this.cart = cart;
 	}
 
 	public Long getId() {
@@ -168,6 +183,7 @@ public class User {
 				", waist=" + waist +
 				", chest=" + chest +
 				", inseam=" + inseam +
+				", cart=" + cart +
 				'}';
 	}
 }
