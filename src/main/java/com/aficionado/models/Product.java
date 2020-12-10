@@ -1,5 +1,5 @@
 package com.aficionado.models;
-import java.util.List;
+// import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 // set User as an entity and name table
 @Entity
-//@Table(name = "product")
+@Table(name = "product")
 public class Product {
     // set Id as primary key, randomly generate it and name column
     @Id
