@@ -9,7 +9,7 @@
     <form action="test.html" th:action="@{/newuser}" method="post" th:object="${user}">
         <input type="text " name="firstName" placeholder="first name" th:field="*{firstName}">
         <input type="text " name="lastName" placeholder="last name" th:field="*{lastName}">
-        <input type="text " name="userName" placeholder="user name" th:field="*{userName}">
+        <input type="text " name="userName" placeholder="user name" th:field="*{username}">
         <input type="email" name="email" placeholder="email name" th:field="*{email}">
         <input type="password" name="password" placeholder="password" th:field="*{password}">
         <input type="submit">

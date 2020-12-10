@@ -16,8 +16,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private Long productId;
+    private Long id;
     // fields
+    private String name;
     private String color;
     private String fabric;
     private int buttons;
@@ -29,8 +30,9 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long productId, String color, String fabric, int buttons, String breast, String lining, String lapel, double price) {
-        this.productId = productId;
+    public Product(Long id, String name, String color, String fabric, int buttons, String breast, String lining, String lapel, double price) {
+        this.id = id;
+        this.name = name;
         this.color = color;
         this.fabric = fabric;
         this.buttons = buttons;
@@ -40,9 +42,20 @@ public class Product {
         this.price = price;
     }
 
-    // getters and setters
-    public Long getProductId() {
-        return productId;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getColor() {
@@ -104,7 +117,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productId=" + productId +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 ", fabric='" + fabric + '\'' +
                 ", buttons=" + buttons +

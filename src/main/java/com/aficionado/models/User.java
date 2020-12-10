@@ -13,89 +13,110 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 
 @Entity
 @Table(name="users")
-public class User {
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long Id;
+public class User{
 
-	@NotEmpty(message = "please provide a password")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
+	private Long id;
+
+	@Email(message = "Please provide a valid email")
+	@NotEmpty(message = "Please provide an email")
+	private String email;
+
+	@NotEmpty(message = "Please provide a username")
+	@Length(min = 3, message = "Your username must have at least 3 characters")
+	@Length(max = 15, message = "Your username cannot have more than 15 characters")
+	@Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
+	private String username;
+
+	@Length(min = 5, message = "Your password must have at least 5 characters")
+	@NotEmpty(message = "Please provide a password")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
+	@NotEmpty(message = "Please provide your first name")
+	private String firstName;
+
+	@NotEmpty(message = "Please provide your last name")
+	private String lastName;
+
+	private int active;
+
 	@CreationTimestamp
-	private Date joinedAt;
+	private Date createdAt;
 
-	@NotEmpty(message = "please provide a first name")
-	public String firstName;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
 
-	@NotEmpty(message = "please provide a last name")
-	public String lastName;
+	@ElementCollection
+	private Map<Product, Integer> cart;
 
-	@NotEmpty(message = "please provide a user name")
-	@Pattern(regexp="[^\\s]+", message="Your username cannot contain spaces")
-	public String userName;
+	//@NotEmpty(message = "Please provide your waist measurement in inches")
+    private double waist;
 
-	@NotEmpty
-	@Email(message = "please provide a valid email")
-	public String email;
+	//@NotEmpty(message = "Please provide your chest measurement in inches")
+    private double chest;
 
-
-	public String imageUrl;
-
-
-	public Double waist;
-
-
-	public Double chest;
-
-
-	public Double inseam;
-
-	@ManyToMany
-	@JoinTable(name = "cart_products", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-	private List<Product> cart;
+	//@NotEmpty(message = "Please provide your inseam measurement in inches")
+    private double inseam;
 
 	public User() {
 	}
 
-	public User(Date joinedAt, @NotEmpty(message = "please provide a first name") String firstName, @NotEmpty(message = "please provide a last name") String lastName, @NotEmpty(message = "please provide a user name") @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces") String userName, @NotEmpty @Email(message = "please provide a valid email") String email, String imageUrl, Double waist, Double chest, Double inseam, List cart) {
-		this.joinedAt = joinedAt;
+	public User(Long id, @Email(message = "Please provide a valid email") @NotEmpty(message = "Please provide an email") String email, @NotEmpty(message = "Please provide a username") @Length(min = 3, message = "Your username must have at least 3 characters") @Length(max = 15, message = "Your username cannot have more than 15 characters") @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces") String username, @Length(min = 5, message = "Your password must have at least 5 characters") @NotEmpty(message = "Please provide a password") String password, @NotEmpty(message = "Please provide your first name") String firstName, @NotEmpty(message = "Please provide your last name") String lastName, int active, Date createdAt, Set<Role> roles, Map<Product, Integer> cart, double waist, double chest, double inseam) {
+		this.id = id;
+		this.email = email;
+		this.username = username;
+		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.userName = userName;
-		this.email = email;
-		this.imageUrl = imageUrl;
+		this.active = active;
+		this.createdAt = createdAt;
+		this.roles = roles;
+		this.cart = cart;
 		this.waist = waist;
 		this.chest = chest;
 		this.inseam = inseam;
-		this.cart = cart;
-	}
-
-	public List<Product> getCart() {
-		return cart;
-	}
-
-	public void setCart(List<Product> cart) {
-		this.cart = cart;
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
-	public Date getJoinedAt() {
-		return joinedAt;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setJoinedAt(Date joinedAt) {
-		this.joinedAt = joinedAt;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getFirstName() {
@@ -114,174 +135,77 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getUserName() {
-		return userName;
+	public int getActive() {
+		return active;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setActive(int active) {
+		this.active = active;
 	}
 
-	public String getEmail() {
-		return email;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
-	public Double getWaist() {
+	public Map<Product, Integer> getCart() {
+		return cart;
+	}
+
+	public void setCart(Map<Product, Integer> cart) {
+		this.cart = cart;
+	}
+
+	public double getWaist() {
 		return waist;
 	}
 
-	public void setWaist(Double waist) {
+	public void setWaist(double waist) {
 		this.waist = waist;
 	}
 
-	public Double getChest() {
+	public double getChest() {
 		return chest;
 	}
 
-	public void setChest(Double chest) {
+	public void setChest(double chest) {
 		this.chest = chest;
 	}
 
-	public Double getInseam() {
+	public double getInseam() {
 		return inseam;
 	}
 
-	public void setInseam(Double inseam) {
+	public void setInseam(double inseam) {
 		this.inseam = inseam;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override
 	public String toString() {
 		return "User{" +
-				"Id=" + Id +
-				", joinedAt=" + joinedAt +
+				"id=" + id +
+				", email='" + email + '\'' +
+				", username='" + username + '\'' +
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
-				", userName='" + userName + '\'' +
-				", email='" + email + '\'' +
-				", imageUrl='" + imageUrl + '\'' +
+				", active=" + active +
+				", createdAt=" + createdAt +
+				", roles=" + roles +
+				", cart=" + cart +
 				", waist=" + waist +
 				", chest=" + chest +
 				", inseam=" + inseam +
-				", cart=" + cart +
 				'}';
 	}
 }
-
-//set User as an entity and name table
-//@Entity
-//@Table(name="users")
-//public class User {
-//	// set Id as primary key, randomly generate it and name column
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	//@Column(name="user_id")
-//	private Long userId;
-//	//fields and validation messages
-//	@Email(message = "Please provide a valid email")
-//	@NotEmpty(message = "Please provide an email")
-//	private String email;
-//
-//	@NotEmpty(message = "Please provide a username")
-//	@Length(min = 3, message = "Your username must have at least 3 characters")
-//	@Length(max = 15, message = "Your username cannot have more than 15 characters")
-//	@Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
-//	private String username;
-//
-//	@Length(min = 5, message = "Your password must have at least 5 characters")
-//	@NotEmpty(message = "Please provide a password")
-//	@JsonProperty(access = Access.WRITE_ONLY)
-//	private String password;
-//
-//	@NotEmpty(message = "Please provide your first name")
-//    private String firstName;
-//
-//    @NotEmpty(message = "Please provide your last name")
-//    private String lastName;
-//
-//    private String imageUrl;
-//    //link to userMeasurements table
-//    @OneToOne(cascade = CascadeType.ALL)
-//    //@JoinColumn(name = "user_measurements_id", referencedColumnName = "user_id")
-//    private UserMeasurements userMeasurements;
-//    //getters and setters for all fields except id
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public String getUsername() {
-//		return username;
-//	}
-//
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public String getFirstName() {
-//		return firstName;
-//	}
-//
-//	public void setFirstName(String firstName) {
-//		this.firstName = firstName;
-//	}
-//
-//	public String getLastName() {
-//		return lastName;
-//	}
-//
-//	public void setLastName(String lastName) {
-//		this.lastName = lastName;
-//	}
-//
-//	public String getImageUrl() {
-//		return imageUrl;
-//	}
-//
-//	public void setImageUrl(String imageUrl) {
-//		this.imageUrl = imageUrl;
-//	}
-//
-//	public UserMeasurements getUserMeasurements() {
-//		return userMeasurements;
-//	}
-//
-//	public void setUserMeasurements(UserMeasurements userMeasurements) {
-//		this.userMeasurements = userMeasurements;
-//	}
-//
-//
-//}
-//
-//
