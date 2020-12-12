@@ -21,6 +21,7 @@ public class Product {
     private String name;
     private String color;
     private String fabric;
+    public int quantity;
     private int buttons;
     private String breast;
     private String lining;
@@ -30,16 +31,25 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String name, String color, String fabric, int buttons, String breast, String lining, String lapel, double price) {
+    public Product(Long id, String name, String color, String fabric, int quantity, int buttons, String breast, String lining, String lapel, double price) {
         this.id = id;
         this.name = name;
         this.color = color;
         this.fabric = fabric;
+        this.quantity = quantity;
         this.buttons = buttons;
         this.breast = breast;
         this.lining = lining;
         this.lapel = lapel;
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getName() {

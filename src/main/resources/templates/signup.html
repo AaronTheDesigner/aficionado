@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>Signup</h1>
+<form th:action="@{/signup}" th:object="${user}" method="post">
+    <input type="email" name="email" placeholder="email name" th:field="*{email}">
+    <input type="text " name="firstName" placeholder="first name" th:field="*{firstName}">
+    <input type="text " name="lastName" placeholder="last name" th:field="*{lastName}">
+    <input type="text " name="userName" placeholder="user name" th:field="*{username}">
+    <input type="number" name="waist" placeholder="Waist Measurement" th:field="*{waist}">
+    <input type="number" name="chest" placeholder="Waist Measurement" th:field="*{chest}">
+    <input type="number" name="inseam" placeholder="Waist Measurement" th:field="*{inseam}">
+    <input type="password" name="password" placeholder="password" th:field="*{password}">
+    <input type="submit">
+</form>
 </body>
 </html>
