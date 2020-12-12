@@ -1,6 +1,11 @@
 package com.aficionado.models;
 // import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 // set User as an entity and name table
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
     // set Id as primary key, randomly generate it and name column
     @Id
@@ -27,115 +36,4 @@ public class Product {
     private String lining;
     private String lapel;
     private double price;
-
-    public Product() {
-    }
-
-    public Product(Long id, String name, String color, String fabric, int quantity, int buttons, String breast, String lining, String lapel, double price) {
-        this.id = id;
-        this.name = name;
-        this.color = color;
-        this.fabric = fabric;
-        this.quantity = quantity;
-        this.buttons = buttons;
-        this.breast = breast;
-        this.lining = lining;
-        this.lapel = lapel;
-        this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getFabric() {
-        return fabric;
-    }
-
-    public void setFabric(String fabric) {
-        this.fabric = fabric;
-    }
-
-    public int getButtons() {
-        return buttons;
-    }
-
-    public void setButtons(int buttons) {
-        this.buttons = buttons;
-    }
-
-    public String getBreast() {
-        return breast;
-    }
-
-    public void setBreast(String breast) {
-        this.breast = breast;
-    }
-
-    public String getLining() {
-        return lining;
-    }
-
-    public void setLining(String lining) {
-        this.lining = lining;
-    }
-
-    public String getLapel() {
-        return lapel;
-    }
-
-    public void setLapel(String lapel) {
-        this.lapel = lapel;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
-                ", fabric='" + fabric + '\'' +
-                ", buttons=" + buttons +
-                ", breast='" + breast + '\'' +
-                ", lining='" + lining + '\'' +
-                ", lapel='" + lapel + '\'' +
-                ", price=" + price +
-                '}';
-    }
 }

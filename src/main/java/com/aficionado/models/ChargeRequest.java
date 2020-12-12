@@ -1,5 +1,9 @@
 package com.aficionado.models;
 
+
+import lombok.Data;
+
+@Data
 public class ChargeRequest {
     public enum Currency {
         EUR, USD;
