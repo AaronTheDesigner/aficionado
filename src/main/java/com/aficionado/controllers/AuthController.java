@@ -28,6 +28,7 @@ import com.aficionado.sevice.UserService;
 
     @GetMapping(value = "/signup")
     public String registration(Model model) {
+        System.out.print("sign up page");
         User user = new User();
         model.addAttribute("user", user);
         return "registration";
@@ -43,12 +44,13 @@ import com.aficionado.sevice.UserService;
 
         if (!bindingResult.hasErrors()) {
             userService.saveNewUser(user);
+            System.out.print("saving new user");
             System.out.print(user);
             model.addAttribute("success", "Sign up successful");
             model.addAttribute("user", new User());
         }
 
-        return "profile";
+        return "login";
     }
 
 }
