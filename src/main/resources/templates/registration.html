@@ -6,17 +6,74 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/signup}" th:object="${user}" method="post">
-    <input type="email" name="email" placeholder="email name" th:field="*{email}">
-    <input type="text " name="firstName" placeholder="first name" th:field="*{firstName}">
-    <input type="text " name="lastName" placeholder="last name" th:field="*{lastName}">
-    <input type="text " name="userName" placeholder="user name" th:field="*{username}">
-    <input type="number" name="waist" placeholder="Waist Measurement" th:field="*{waist}">
-    <input type="number" name="chest" placeholder="Waist Measurement" th:field="*{chest}">
-    <input type="number" name="inseam" placeholder="Waist Measurement" th:field="*{inseam}">
-    <input type="password" name="password" placeholder="password" th:field="*{password}">
-    <button class="btn btn-md btn-success btn-block" name="Submit"
-            value="Submit" type="Submit" th:text="Submit"></button>
+<!--<form th:action="@{/signup}" th:object="${user}" method="post">-->
+<!--    <input type="email" name="email" placeholder="email name" th:field="*{email}">-->
+<!--    <input type="text " name="firstName" placeholder="first name" th:field="*{firstName}">-->
+<!--    <input type="text " name="lastName" placeholder="last name" th:field="*{lastName}">-->
+<!--    <input type="text " name="userName" placeholder="user name" th:field="*{username}">-->
+<!--    <input type="number" name="waist" placeholder="Waist Measurement" th:field="*{waist}">-->
+<!--    <input type="number" name="chest" placeholder="Waist Measurement" th:field="*{chest}">-->
+<!--    <input type="number" name="inseam" placeholder="Waist Measurement" th:field="*{inseam}">-->
+<!--    <input type="password" name="password" placeholder="password" th:field="*{password}">-->
+<!--    <button class="btn btn-md btn-success btn-block" name="Submit"-->
+<!--            value="Submit" type="Submit" th:text="Submit"></button>-->
+<!--</form>-->
+
+<form th:action="@{/signup}" th:object="${user}" method="post"
+      autocomplete="off">
+    <div class="form-group">
+        <label th:if="${#fields.hasErrors('firstName')}"
+               th:errors="*{firstName}" class="validation-message"></label> <input
+            type="text" th:field="*{firstName}" placeholder="First Name"
+            class="form-control" />
+    </div>
+    <div class="form-group">
+        <label th:if="${#fields.hasErrors('lastName')}"
+               th:errors="*{lastName}" class="validation-message"></label> <input
+            type="text" th:field="*{lastName}" placeholder="Last Name"
+            class="form-control" />
+    </div>
+    <div class="form-group">
+        <label th:if="${#fields.hasErrors('username')}"
+               th:errors="*{username}" class="validation-message"></label> <input
+            type="text" th:field="*{username}" placeholder="Username"
+            class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="text" th:field="*{email}" placeholder="Email"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+            class="validation-message"></label>
+    </div>
+    <div class="form-group">
+        <input type="number" th:field="*{chest}" placeholder="chest"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('chest')}" th:errors="*{chest}"
+            class="validation-message"></label>
+    </div>
+    <div class="form-group">
+        <input type="number" th:field="*{waist}" placeholder="waist"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('waist')}" th:errors="*{waist}"
+            class="validation-message"></label>
+    </div>
+    <div class="form-group">
+        <input type="number" th:field="*{inseam}" placeholder="inseam"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('inseam')}" th:errors="*{inseam}"
+            class="validation-message"></label>
+    </div>
+
+    <div class="form-group">
+        <input type="password" th:field="*{password}" placeholder="Password"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+            class="validation-message"></label>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-md btn-success btn-block" name="Submit"
+                value="Submit" type="Submit" th:text="Submit"></button>
+    </div>
 </form>
 </body>
 </html>

@@ -28,7 +28,6 @@ import com.aficionado.sevice.UserService;
 
     @GetMapping(value = "/signup")
     public String registration(Model model) {
-        System.out.print("registration page");
         User user = new User();
         model.addAttribute("user", user);
         return "registration";
