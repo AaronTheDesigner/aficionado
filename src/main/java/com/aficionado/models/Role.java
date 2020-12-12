@@ -3,6 +3,7 @@ package com.aficionado.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "ROLE")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
