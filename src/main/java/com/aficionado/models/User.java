@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="user")
 public class User implements UserDetails {
 
 	// UserDetails requires these, they are technically getters (is-ers?) overridden by Lombok.

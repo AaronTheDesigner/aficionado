@@ -48,7 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/cart").authenticated()
                 .antMatchers("/console/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/collection").permitAll()
@@ -56,7 +55,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/about").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signup").permitAll()
-                .antMatchers("/test").permitAll()
                 .antMatchers("/registration").permitAll()
                 .antMatchers("/stylesheet.css").permitAll()
                 .antMatchers("/cart").authenticated()
@@ -67,8 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and().logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login").and().exceptionHandling();
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login").and().exceptionHandling();
 
         http.headers().frameOptions().disable();
     }

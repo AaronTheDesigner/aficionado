@@ -1,5 +1,9 @@
 package com.aficionado.sevice;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+
 import com.aficionado.models.Product;
 import com.aficionado.models.Role;
 import com.aficionado.models.User;
@@ -13,9 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
+
 
 @Service
 public class UserService implements UserDetailsService {
