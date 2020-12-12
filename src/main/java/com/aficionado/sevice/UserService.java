@@ -1,14 +1,7 @@
 package com.aficionado.sevice;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
-import com.aficionado.models.Product;
-import com.aficionado.models.Role;
-import com.aficionado.models.User;
-import com.aficionado.repository.RoleRepository;
-import com.aficionado.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +10,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.aficionado.models.Product;
+import com.aficionado.models.Role;
+import com.aficionado.models.User;
+import com.aficionado.repository.RoleRepository;
+import com.aficionado.repository.UserRepository;
+
 
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService{
+
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -38,23 +38,28 @@ public class UserService implements UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
+
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
     public void saveExisting(User user) {
         userRepository.save(user);
     }
 
     public User saveNewUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        System.out.println("new user posted");
+        user.setActive(1);
         Role userRole = roleRepository.findByRole("USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-        System.out.println(user);
+        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }
 
     public User getLoggedInUser() {
-        String loggedInUserName = SecurityContextHolder.
+        String loggedInUsername = SecurityContextHolder.
                 getContext().getAuthentication().getName();
-        return findByUsername(loggedInUserName);
+
+        return findByUsername(loggedInUsername);
     }
 
     public void updateCart(Map<Product, Integer> cart) {
@@ -64,11 +69,11 @@ public class UserService implements UserDetailsService {
         saveExisting(user);
     }
 
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUsername(username);
         if(user == null) throw new UsernameNotFoundException("Username not found.");
         return (UserDetails)user;
     }
-
 }

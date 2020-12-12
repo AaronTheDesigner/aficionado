@@ -15,10 +15,9 @@
 
     <h2>Welcome!</h2>
     <form th:action="@{/login}" method="post">
-        <br /> <input type="text" id="username" name="username"
-                      th:placeholder="Username" class="form-control" /> <br /> <input
-            type="password" th:placeholder="Password" id="password"
-            name="password" class="form-control" /> <br />
+        <br /> <input type="text" name="username" th:placeholder="Username" class="form-control" /> <br />
+
+        <input type="password" th:placeholder="Password" name="password" class="form-control" /> <br />
         <div align="center" th:if="${param.error}">
             <h4 style="color: red">Login unsuccessful.</h4>
         </div>
