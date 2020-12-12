@@ -1,17 +1,16 @@
 package com.aficionado.controllers;
 
-import com.aficionado.models.User;
-import com.aficionado.repository.UserRepository;
-import com.aficionado.sevice.UserService;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.validation.Valid;
+import com.aficionado.models.User;
+import com.aficionado.sevice.UserService;
 
 
 @Controller
@@ -20,7 +19,7 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "login")
+    @GetMapping(value = "/login")
     public String login() {
         System.out.print("User logged in.");
         return "login";
@@ -30,7 +29,7 @@ public class AuthController {
     public String registration(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "profile";
+        return "signup";
     }
 
     @PostMapping(value = "/signup")
