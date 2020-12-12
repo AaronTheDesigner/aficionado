@@ -17,7 +17,7 @@ import com.aficionado.sevice.UserService;
  @Controller
  public class AuthController {
 
-     @Autowired
+    @Autowired
     private UserService userService;
 
     @GetMapping(value = "/login")
@@ -28,20 +28,23 @@ import com.aficionado.sevice.UserService;
 
     @GetMapping(value = "/signup")
     public String registration(Model model) {
+        System.out.print("registration page");
         User user = new User();
         model.addAttribute("user", user);
-        return "signup";
+        return "registration";
     }
 
     @PostMapping(value = "/signup")
     public String createNewUser(@Valid User user, BindingResult bindingResult, Model model) {
         User userExists = userService.findByUsername(user.getUsername());
         if (userExists != null) {
+            System.out.print("errors");
             bindingResult.rejectValue("username", "error.user", "Username is already taken");
         }
 
         if (!bindingResult.hasErrors()) {
             userService.saveNewUser(user);
+            System.out.print(user);
             model.addAttribute("success", "Sign up successful");
             model.addAttribute("user", new User());
         }

@@ -8,6 +8,8 @@ import com.aficionado.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -40,8 +42,10 @@ public class UserService {
 
     public User saveNewUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        System.out.println("new user posted");
         Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        System.out.println(user);
         return userRepository.save(user);
     }
 
@@ -56,6 +60,13 @@ public class UserService {
         System.out.println(cart);
         user.setCart(cart);
         saveExisting(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = findByUsername(username);
+        if(user == null) throw new UsernameNotFoundException("Username not found.");
+        return (UserDetails)user;
     }
 
 }

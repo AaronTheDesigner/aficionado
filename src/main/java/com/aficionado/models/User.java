@@ -10,7 +10,10 @@ import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.Date;
 //import java.util.List;
 import java.util.Map;
@@ -19,7 +22,20 @@ import java.util.Set;
 
 @Entity
 @Table(name="users")
-public class User{
+public class User implements UserDetails {
+
+	// UserDetails requires these, they are technically getters (is-ers?) overridden by Lombok.
+	// @Transient Makes it so these aren't persisted in the database, as they are hard coded.
+	@Transient
+	private final boolean accountNonExpired = true;
+	@Transient
+	private boolean accountNonLocked = true;
+	@Transient
+	private boolean credentialsNonExpired = true;
+	@Transient
+	private boolean enabled = true;
+	@Transient
+	private Collection<GrantedAuthority> authorities = null;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -107,8 +123,33 @@ public class User{
 		return username;
 	}
 
+	@Override
+	public boolean isAccountNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return false;
+	}
+
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return null;
 	}
 
 	public String getPassword() {
