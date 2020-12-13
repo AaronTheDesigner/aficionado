@@ -27,7 +27,9 @@ public class Product {
     @Column
     private Long id;
     // fields
+
     private String name;
+    private String imageUrl;
     private String color;
     private String fabric;
     public int quantity;
