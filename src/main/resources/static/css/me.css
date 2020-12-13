@@ -90,11 +90,11 @@ a:hover {
     opacity: 1; } }
 
 html {
-  background-color: #141414; }
+  background-color: #FFFFFF; }
 
 body.page-template-page-fullsingle-me {
   height: 100vh;
-  background-color: #141414;
+  background-color: hsl(0, 0%, 8%);
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 25px; /*About Me Page Word Height*/
