@@ -101,12 +101,12 @@ body.page-template-page-fullsingle-me {
   line-height: 60px;
   letter-spacing: -0.5px;
   color: #999999;
-  background-image: url("../../images/backgroundam.jpg");
+  background-image: url("../../images/Placeholder-bg.jpg");
   background-position: center center;
   background-size: cover; }
   body.page-template-page-fullsingle-me p {
     margin-bottom: 28px;
-    color: #999999; }
+    color: #ffffff; }
     @media (max-width: 800px) {
       body.page-template-page-fullsingle-me p {
         font-size: 32px;
@@ -179,7 +179,7 @@ body.page-template-page-fullsingle-me {
     .bio {
       max-width: none; } }
   .bio a {
-    color: #CCCCCC;
+    color: #eac50e;
     -webkit-transition: 1s;
     transition: 1s; }
     .bio a:hover {
