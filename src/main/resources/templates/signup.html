@@ -1,10 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<h1>Signup</h1>
-</body>
+  </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Aficionado</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link
+      href="../css/stylesheet.css"
+      type="text/css"
+      rel="stylesheet"
+      th:href="@{../css/stylesheet.css}"
+    />
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+          <!--Navbar logo-->
+          <img
+            src="../static/images/aficionodo-logo.png"
+            th:src="@{/images/aficionodo-logo.png}"
+          />
+        </a>
+        <button
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars ml-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <!-- <a class="nav-link js-scroll-trigger" href="src/main/resources/templates/about.html">About Us</a> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--<header>
+      <div class="overlay"></div>
+      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://vimeo.com/489002061" type="video/mp4" th:src="@{/images/01-thumbnail.jpg}">
+      </video>
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100 text-white">
+            <h1 class="display-3">This Isn't Your Fathers Suit.</h1>
+            <p class="lead mb-0">Dapper & Dopeness Personified</p>
+          </div>
+        </div>
+      </div>
+    </header>-->
+    <!-- Masthead-->
+    <header class="mastheadsix">
+      <div class="container">
+        <!-- <div class="masthead-subheading">Subheading Here!</div> -->
+        <div class="mastheadsix-heading text-uppercase">
+          SIGN UP NOW
+        </div>
+      </div>
+    </header>
+
+    <!-- (Collections) Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+      <div class="container">
+        <div class="text-center">
+            <!--Small Italicized Text Here-->
+          </h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="portfolio-item"></div>
+              <!--CSignup Form-->
+              <form class="jotform-form" action="https://submit.jotform.com/submit/203476216730149/" method="post" name="form_203476216730149" id="203476216730149" accept-charset="utf-8" autocomplete="on">
+                <input type="hidden" name="formID" value="203476216730149" />
+                <input type="hidden" id="JWTContainer" value="" />
+                <input type="hidden" id="cardinalOrderNumber" value="" />
+                <div role="main" class="form-all">
+                  <ul class="form-section page-section">
+                    <li id="cid_1" class="form-input-wide" data-type="control_head">
+                      <div class="form-header-group  header-large">
+                        <div class="header-text httac htvam">
+                          <div id="subHeader_1" class="form-subHeader">
+                            Please fill in the form below
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_email" id="id_225">
+                      <label class="form-label form-label-left" id="label_225" for="input_225"> E-mail </label>
+                      <div id="cid_225" class="form-input">
+                        <input type="email" id="input_225" name="q225_email" class="form-textbox validate[Email]" size="30" value="" placeholder="ex: myname@example.com" data-component="email" aria-labelledby="label_225" />
+                      </div>
+                    </li>
+                    <li class="form-line form-line-column form-col-1" data-type="control_fullname" id="id_3">
+                      <label class="form-label form-label-left" id="label_3" for="first_3"> Name </label>
+                      <div id="cid_3" class="form-input">
+                        <div data-wrapper-react="true">
+                          <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+                            <input type="text" id="first_3" name="q3_name[first]" class="form-textbox" size="10" value="" data-component="first" aria-labelledby="label_3 sublabel_3_first" />
+                            <label class="form-sub-label" for="first_3" id="sublabel_3_first" style="min-height:13px" aria-hidden="false"> First Name </label>
+                          </span>
+                          <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
+                            <input type="text" id="last_3" name="q3_name[last]" class="form-textbox" size="15" value="" data-component="last" aria-labelledby="label_3 sublabel_3_last" />
+                            <label class="form-sub-label" for="last_3" id="sublabel_3_last" style="min-height:13px" aria-hidden="false"> Last Name </label>
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_textbox" id="id_235">
+                      <label class="form-label form-label-top form-label-auto" id="label_235" for="input_235"> Username </label>
+                      <div id="cid_235" class="form-input-wide">
+                        <input type="text" id="input_235" name="q235_username" data-type="input-textbox" class="form-textbox" size="20" value="" data-component="textbox" aria-labelledby="label_235" />
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_number" id="id_237">
+                      <label class="form-label form-label-top form-label-auto" id="label_237" for="input_237"> Waist </label>
+                      <div id="cid_237" class="form-input-wide">
+                        <input type="number" id="input_237" name="q237_waist" data-type="input-number" class=" form-number-input form-textbox" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_237" step="any" />
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_number" id="id_238">
+                      <label class="form-label form-label-top form-label-auto" id="label_238" for="input_238"> Chest </label>
+                      <div id="cid_238" class="form-input-wide">
+                        <input type="number" id="input_238" name="q238_chest" data-type="input-number" class=" form-number-input form-textbox" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_238" step="any" />
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_number" id="id_239">
+                      <label class="form-label form-label-top form-label-auto" id="label_239" for="input_239"> Inseam </label>
+                      <div id="cid_239" class="form-input-wide">
+                        <input type="number" id="input_239" name="q239_inseam" data-type="input-number" class=" form-number-input form-textbox" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_239" step="any" />
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_textbox" id="id_240">
+                      <label class="form-label form-label-top form-label-auto" id="label_240" for="input_240"> Password </label>
+                      <div id="cid_240" class="form-input-wide">
+                        <input type="text" id="input_240" name="q240_password" data-type="input-textbox" class="form-textbox" size="20" value="" data-component="textbox" aria-labelledby="label_240" />
+                      </div>
+                    </li>
+                    <li class="form-line" data-type="control_button" id="id_2">
+                      <div id="cid_2" class="form-input-wide">
+                        <div style="margin-left:156px" data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                          <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                            Submit Form
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                    <li style="display:none">
+                      Should be Empty:
+                      <input type="text" name="website" value="" />
+                    </li>
+                  </ul>
+                </div>
+                <script>
+                JotForm.showJotFormPowered = "new_footer";
+                </script>
+                <script>
+                JotForm.poweredByText = "Powered by JotForm";
+                </script>
+                <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="203476216730149" />
+                <script type="text/javascript">
+                var all_spc = document.querySelectorAll("form[id='203476216730149'] .si" + "mple" + "_spc");
+              for (var i = 0; i < all_spc.length; i++)
+              {
+                all_spc[i].value = "203476216730149-203476216730149";
+              }
+                </script>
+              </form>
+              <!--<form action="http://lab.alexcican.com/minimal_signup_form/about.html" method="get" align-items-center"">
+                <h1>Sign up</h1><br/>
+              
+                <span class="input"></span>
+                <input type="text" name="name" placeholder="Full name" title="Format: Xx[space]Xx (e.g. Alex Cican)" autofocus autocomplete="off" required pattern="^\w+\s\w+$" />
+                <span class="input"></span>
+                <input type="email" name="email" placeholder="Email address" required />
+                <span id="passwordMeter"></span>
+                <input type="password" name="password" id="password" placeholder="Password" title="Password min 8 characters. At least one UPPERCASE and one lowercase letter" required pattern="(?=^.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/>
+              
+                <button type="submit" value="Sign Up" title="Submit form" class="icon-arrow-right"><span>Sign up</span></button>
+              </form>-->
+          </div>    
+        </div>
+      </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-lg-left">Copyright © Aficionado 2020</div>
+          <div class="col-lg-4 my-3 my-lg-0">
+            <a class="btn btn-dark btn-social mx-2" href="#!"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+          <div class="col-lg-4 text-lg-right">
+            <a class="mr-3" href="#!">Privacy Policy</a>
+            <a href="#!">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>Signup</h1>
+    <form th:action="@{/signup}" th:object="${user}" method="post">
+        <input type="email" name="email" placeholder="email name" th:field="*{email}">
+        <input type="text " name="firstName" placeholder="first name" th:field="*{firstName}">
+        <input type="text " name="lastName" placeholder="last name" th:field="*{lastName}">
+        <input type="text " name="userName" placeholder="user name" th:field="*{username}">
+        <input type="number" name="waist" placeholder="Waist Measurement" th:field="*{waist}">
+        <input type="number" name="chest" placeholder="Waist Measurement" th:field="*{chest}">
+        <input type="number" name="inseam" placeholder="Waist Measurement" th:field="*{inseam}">
+        <input type="password" name="password" placeholder="password" th:field="*{password}">
+        <input type="submit">
+    </form>
+  </body>
+</html>-->
