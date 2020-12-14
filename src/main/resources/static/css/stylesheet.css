@@ -10516,3 +10516,15 @@ body {
 .qty i {
     font-size: 11px
 }
+
+.button-yellow {
+  color: white;
+  text-decoration: none;
+
+}
+
+.button-yellow:hover {
+  color: white;
+  text-decoration: none;
+}
+
