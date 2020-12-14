@@ -48,7 +48,7 @@
                 src='https://checkout.stripe.com/checkout.js'
                 class='stripe-button'
                 th:attr='data-key=${stripePublicKey},
-					         data-amount=${#aggregates.sum(list)},
+					         data-amount=${#aggregates.sum(list)*100},
 					         data-currency=${currency}'
                 data-name='Baeldung'
                 data-description='Spring course checkout'

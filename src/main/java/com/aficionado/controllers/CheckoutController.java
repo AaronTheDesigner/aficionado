@@ -3,6 +3,7 @@ package com.aficionado.controllers;
 import com.aficionado.models.ChargeRequest;
 import com.aficionado.models.ChargeRequest.Currency;
 import com.aficionado.sevice.StripeService;
+import com.aficionado.sevice.UserService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 
@@ -16,14 +17,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CheckoutController {
-
-   private static final String stripePublicKey = "pk_test_51Hy6yGIvrquu0viBAja8uPXRz7gKKr0LTh4fV13wpyzuitFxN91kB4M9hGV8YbTzVFMVEUxqP5UdL5zVAEBJ2WEf00yg9tPNIv";
+    
+    @Autowired UserService userService;
+    @Value("${STRIPE_PUBLIC_KEY}")
+    private String stripePublicKey;
 
    @GetMapping("/checkout")
    public String checkout(Model model) {
        model.addAttribute("amount", 50 * 100); // in cents
        model.addAttribute("stripePublicKey", stripePublicKey);
        model.addAttribute("currency", ChargeRequest.Currency.USD);
+       userService.getLoggedInUser().getCart().clear();
        return "checkout";
    }
 
