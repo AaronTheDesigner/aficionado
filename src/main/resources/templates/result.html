@@ -1,8 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--Headstyling fragment below-->
-<head ></head>
-
+<head>
+<title>Log in</title>
+<!--    <head th:replace="fragments/header"></head>-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Login Page</title>
+	<link href="../css/stylesheet2.css" type="text/css" rel="stylesheet" th:href="@{../css/stylesheet2.css}" />
+</head>
         <title>Result</title>
     </head>
     <body>
@@ -17,8 +24,9 @@
             <div>Balance transaction id.: <span th:text='${balance_transaction}' /></div>
         </div>
         <a href='/checkout'>Checkout again</a>
-    </body>
-    <!--Footer fragment below-->
-	<div ></div>
+    
+    <div class="container-fluid text-center footer">
+	</a></p>
+	</div>
 </body>
 </html>
