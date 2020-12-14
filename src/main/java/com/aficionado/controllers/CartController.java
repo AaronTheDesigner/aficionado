@@ -49,7 +49,7 @@ public class CartController {
         Product p = productService.findById(id);
         Map<Product, Integer> cart = cart();
         System.out.println("Posting to cart" + cart);
-        //p.setQuantity(cart.getOrDefault(p, 0) + 1);
+        p.setQuantity(cart.getOrDefault(p, 0) + 1);
         return "redirect:/cart";
     }
 
@@ -57,7 +57,7 @@ public class CartController {
     public String updateQuantities(@RequestParam long[] id, @RequestParam int[] quantity) {
         for (int i = 0; i < id.length; i++) {
             Product p = productService.findById(id[i]);
-            //p.setQuantity(quantity[i]);
+            p.setQuantity(quantity[i]);
         }
 
         return "redirect:/cart";
