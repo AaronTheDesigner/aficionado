@@ -101,8 +101,41 @@
           <div class="col-lg-4 col-sm-6 mb-4">
             <div class="portfolio-item"></div>
               <!--CSignup Form-->
-              <form method="post"  autocomplete="on">
+              <form method="post" th:action="@{/signup}" th:object="${user}">
+                <div class="mb-3">
+                  <label for="firstname">First Name</label>
+                  <input type="text" id="firstname" name="firstname" placeholder="First Name" th:field="*{firstName}" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="firstname">Last Name</label>
+                  <input type="text" id="lastname" name="lastname" placeholder="Last Name" th:field="*{lastName}" class="form-control">
+                </div>
+                 <div class="mb-3">
+                  <label for="firstname">User Name</label>
+                  <input type="text" id="username" name="username" placeholder="User Name" th:field="*{username}" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="firstname">Password</label>
+                  <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}" class="form-control">
+                </div>
 
+                <div class="mb-3">
+                  <label for="firstname">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Email" th:field="*{email}" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="firstname">Waist</label>
+                  <input type="number" id="waist" name="waist" placeholder="Waist" th:field="*{waist}" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="firstname">Chest</label>
+                  <input type="number" id="chest" name="chest" placeholder="Chest" th:field="*{chest}" class="form-control">
+                </div>
+                 <div class="mb-3">
+                  <label for="firstname">Inseam</label>
+                  <input type="number" id="inseam" name="inseam" placeholder="Inseam" th:field="*{inseam}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </form>
               <!--<form action="http://lab.alexcican.com/minimal_signup_form/about.html" method="get" align-items-center"">
                 <h1>Sign up</h1><br/>

@@ -66,7 +66,7 @@ public class CartController {
     @PostMapping("/cart/delete")
     public String removeFromCart(@RequestParam long id) {
         Product p = productService.findById(id);
-        //p.setQuantity(0);
+        p.setQuantity(0);
         return "redirect:/cart";
     }
 
