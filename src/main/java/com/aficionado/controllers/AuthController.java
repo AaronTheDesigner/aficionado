@@ -24,7 +24,7 @@ import com.aficionado.sevice.UserService;
      @GetMapping(value="/login")
      public String login() {
          System.out.println("User Logged in.");
-         return "cart";
+         return "login";
      }
 
      @GetMapping(value="/signup")

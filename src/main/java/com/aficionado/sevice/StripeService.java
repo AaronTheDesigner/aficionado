@@ -20,8 +20,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StripeService {
-   @Value("${STRIPE_SECRET_KEY}")
-   private String secretKey;
+
+   private static final String secretKey = "sk_test_51Hy6yGIvrquu0viBTxT6adHpFWoPnE51EeWwHRzFUBK92H0a5ZCPkDtLp3CCoPAbfC70qRXbKA9BgUnuapF2GOAj00k0jFxSz5";
 
    @PostConstruct
    public void init() {

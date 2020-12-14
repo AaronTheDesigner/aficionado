@@ -33,14 +33,19 @@ public class CartController {
         if (user == null) {
             return null;
         }
-
         Map<Product, Integer> userCart = new HashMap<Product, Integer>(user.getCart());
+        System.out.print(userCart);
         return userCart;
     }
 
     @ModelAttribute("list")
     public List<Double> list() {
         return new ArrayList<>();
+    }
+    //////////////
+    @GetMapping("/cart")
+    public String showCart() {
+        return "cart";
     }
 
     @PostMapping("/cart")
@@ -49,35 +54,35 @@ public class CartController {
         Product p = productService.findById(id);
         Map<Product, Integer> cart = cart();
         System.out.println("Posting to cart" + cart);
-        p.setQuantity(cart.getOrDefault(p, 0) + 1);
-        return "redirect:/cart";
+        setQuantity(p, cart.getOrDefault(p, 0) + 1);
+        return "cart";
     }
 
     @PostMapping("/cart/update")
     public String updateQuantities(@RequestParam long[] id, @RequestParam int[] quantity) {
         for (int i = 0; i < id.length; i++) {
             Product p = productService.findById(id[i]);
-            p.setQuantity(quantity[i]);
+            setQuantity(p, quantity[i]);
         }
-
-        return "redirect:/cart";
+        return "cart";
     }
 
     @PostMapping("/cart/delete")
     public String removeFromCart(@RequestParam long id) {
         Product p = productService.findById(id);
-        p.setQuantity(0);
-        return "redirect:/cart";
+        setQuantity(p, 0);
+        return "cart";
     }
 
     private void setQuantity(Product p, int quantity) {
         Map<Product, Integer> userMap = userService.getLoggedInUser().getCart();
-        if (quantity > 0) {
+        if (quantity > 0)
             userMap.put(p, quantity);
-        } else {
+        else
             userMap.remove(p);
-        }
 
         userService.updateCart(userMap);
     }
+
 }
+

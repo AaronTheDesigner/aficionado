@@ -39,12 +39,6 @@ public class MainController {
     @GetMapping(value="/confirm")
     public String confirm() { return "confirm"; }
 
-    @GetMapping(value="/cart")
-    public String cart() { return "cart"; }
-
-    @GetMapping(value="/collection")
-    public String collection() { return "collection"; }
-
     @GetMapping(value="/profile")
     public String profile() {
         return "profile";

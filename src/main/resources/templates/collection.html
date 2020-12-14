@@ -93,8 +93,8 @@
 
                       <form th:action="@{/cart}" th:object="${product}" method="post">
                           <input type="hidden"  th:field="*{id}"/>
-                          <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" >
-                              <a class="button-yellow" th:href="@{/cart}">Add To Cart</a>
+                          <button type="submit" class="btn btn-primary btn-xl text-uppercase" >
+                              Add To Cart
                           </button>
                       </form>
 <!--                          <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">Checkout</button>-->

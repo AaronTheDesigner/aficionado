@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CheckoutController {
-   @Value("${STRIPE_PUBLIC_KEY}")
-   private String stripePublicKey;
+
+   private static final String stripePublicKey = "pk_test_51Hy6yGIvrquu0viBAja8uPXRz7gKKr0LTh4fV13wpyzuitFxN91kB4M9hGV8YbTzVFMVEUxqP5UdL5zVAEBJ2WEf00yg9tPNIv";
 
    @GetMapping("/checkout")
    public String checkout(Model model) {
